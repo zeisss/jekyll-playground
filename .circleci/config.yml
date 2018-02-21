@@ -33,5 +33,9 @@ jobs:
           name: Jekyll build
           command: bundle exec jekyll build --verbose
 
+      - run:
+          name: "Build deploy tarball"
+          command: tar -czvf ~/site.tar.gz _site/
+
       - store_artifacts:
-          path: "_site"
+          path: "site.tar.gz"
