@@ -38,4 +38,25 @@ jobs:
           command: tar -czvf ~/site.tar.gz _site/
 
       - store_artifacts:
-          path: "site.tar.gz"
+          path: "~/site.tar.gz"
+
+  deploy:
+    docker:
+      - image: debian:stretch
+    steps:
+       - run:
+           name: "This is the deploy job"
+           command: echo foo
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build-job
+          filters:
+            branches:
+              only: master
+            
