@@ -57,7 +57,7 @@ jobs:
           name: Upload build artifact
           command: |
             PROJECT=help.moinz.de
-            curl -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
+            curl -vv -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
               -d @/tmp/workspace/site.tar.gz -u ${FS_USER}:${FS_PASSWORD}
 
 
