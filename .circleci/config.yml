@@ -33,23 +33,32 @@ jobs:
           name: Jekyll build
           command: bundle exec jekyll build --verbose
 
+      - run: mkdir -p workspace
       - run:
           name: "Build deploy tarball"
-          command: tar -czvf ~/site.tar.gz _site/
+          command: tar -czvf workspace/site.tar.gz _site/
 
       - store_artifacts:
-          path: "~/site.tar.gz"
+          path: "workspace/site.tar.gz"
+
+      - persist_to_workspace:
+          root: workspace
+          paths:
+            - "site.tar.gz"
 
   deploy:
     docker:
       - image: jimdo/debian-with-curl
     steps:
+       - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
        - run:
           name: Upload build artifact
           command: |
             PROJECT=help.moinz.de
             curl -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
-              -d @~/site.tar.gz -u ${FS_USER}:${FS_PASSWORD}
+              -d @/tmp/workspace/site.tar.gz -u ${FS_USER}:${FS_PASSWORD}
 
 
 workflows:
