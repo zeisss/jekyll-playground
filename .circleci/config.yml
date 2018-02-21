@@ -2,15 +2,22 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: circleci/ruby:2.4-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
     steps:
       - checkout
+      # Which version of bundler?
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Which bundler?
+          command: bundle -v
+
       - run:
-          name: Print the Current Time
-          command: date
+          name: Bundle Install
+          command: bundle check || bundle install
+
       - run:
           name: Jekyll build
           command: bundle exec jekyll build
