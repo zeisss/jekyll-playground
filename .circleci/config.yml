@@ -14,13 +14,24 @@ jobs:
           name: Which bundler?
           command: bundle -v
 
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v2-dependencies-{{ checksum "Gemfile.lock" }}
+
       - run:
           name: Bundle Install
           command: bundle check || bundle install
 
+      - save_cache:
+          paths:
+            - /usr/local/bundle
+            - /usr/local/lib/node_modules
+          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
+
       - run:
           name: Jekyll build
-          command: bundle exec jekyll build
+          command: bundle exec jekyll build --verbose
 
       - store_artifacts:
           path: "_site"
