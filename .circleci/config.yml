@@ -45,8 +45,12 @@ jobs:
       - image: debian:stretch
     steps:
        - run:
-           name: "This is the deploy job"
-           command: echo foo
+          name: Upload build artifact
+          command: |
+            PROJECT=help.moinz.de
+            curl -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
+              -d @~/site.tar.gz -u ${FS_USER}:${FS_PASSWORD}
+
 
 workflows:
   version: 2
