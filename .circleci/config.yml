@@ -42,7 +42,7 @@ jobs:
 
   deploy:
     docker:
-      - image: debian:stretch
+      - image: jimdo/debian-with-curl
     steps:
        - run:
           name: Upload build artifact
