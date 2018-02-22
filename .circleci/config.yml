@@ -36,7 +36,7 @@ jobs:
       - run: mkdir -p workspace
       - run:
           name: "Build deploy tarball"
-          command: tar -czvf workspace/site.tar.gz _site/
+          command: tar -czvf workspace/site.tar.gz _site/*
 
       - store_artifacts:
           path: "workspace/site.tar.gz"
