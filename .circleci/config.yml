@@ -56,9 +56,24 @@ jobs:
        - run:
           name: Upload build artifact
           command: |
+            set -e
             PROJECT=help.moinz.de
-            curl -vv -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
+            test "${FS_ENDPOINT}"
+            test "${FS_USER}"
+            test "${FS_PASSWORD}"
+            curl -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
               -d @/tmp/workspace/site.tar.gz -u ${FS_USER}:${FS_PASSWORD}
+       - run:
+          name: Deploy web site
+          command: |
+            set -e
+            SITE_ID=help.moinz.de
+            test "${DEPLOY_ENDPOINT}"
+            test "${DEPLOYER_TOKEN}"
+            curl -XPOST "${DEPLOY_ENDPOINT}" \
+              -H "Authorization: bearer ${DEPLOYER_TOKEN}"
+              -d site=${SITE_ID} \
+              -d desired_version="${CIRCLE_SHA1}"
 
 
 workflows:
