@@ -8,7 +8,7 @@ Topics and other more advanced mechanisms are not supported.
 
 ## Access
 
-Endpoint: `https://apps.moinz.de/fs/fs.php`
+Endpoint: `https://apps.moinz.de/msg/msg.php`
 
 ## Documentation
 
