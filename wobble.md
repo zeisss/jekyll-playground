@@ -1,5 +1,5 @@
 ---
-title: "Wobble"
+title: "wobble"
 tagline: "Google Wave at home"
 layout: page
 ---
