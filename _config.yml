@@ -1,2 +1,4 @@
 title: "My jekyll site"
+description: "this is the description"
+
 theme: "jekyll-theme-cayman-blog"
