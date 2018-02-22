@@ -2,3 +2,13 @@ title: "My jekyll site"
 description: "this is the description"
 
 theme: "jekyll-theme-cayman-blog"
+
+header_pages:
+ - "deploy.md"
+ - "fs.md"
+ - "msg.md"
+
+
+# social
+github_username: zeisss
+rss: rss
