@@ -1,11 +1,10 @@
 ---
+layout: page
 title: "msg"
-layout: "page"
 ---
 
 Msg is a simple and small message queue for pushing and polling single messages.
 Topics and other more advanced mechanisms are not supported.
-
 
 ## Access
 
