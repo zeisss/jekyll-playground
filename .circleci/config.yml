@@ -63,7 +63,7 @@ jobs:
             test "${FS_PASSWORD}"
             status=$(curl -sS -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
               -H'Content-Type: application/octet-stream' \
-              -w '%{http_code}'
+              -w '%{http_code}' \
               --data-binary "@/tmp/workspace/site.tar.gz" -u ${FS_USER}:${FS_PASSWORD})
 
             if [ "${status}" != "200" ]; then
