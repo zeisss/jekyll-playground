@@ -68,7 +68,7 @@ jobs:
               --data-binary "@/tmp/workspace/site.tar.gz" -u ${FS_USER}:${FS_PASSWORD})
 
             if [ "${status}" != "200" ]; then
-              echo "Failed to upload file" >/dev/stderr
+              echo "Upload failed - status=${status}" >/dev/stderr
               cat /tmp/upload_result > /dev/stderr
               exit 1
             fi
