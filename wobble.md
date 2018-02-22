@@ -8,7 +8,7 @@ Wobble is a Google Wave look-a-like based with a JSON-RPC protocol.
 
 ## Signup
 
-User registration is open at https://wobble.moinz.de
+User registration is open at [wobble.moinz.de](https://wobble.moinz.de).
 
 ## API Endpoint
 
