@@ -64,11 +64,13 @@ jobs:
             status=$(curl -sS -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
               -H'Content-Type: application/octet-stream' \
               -w '%{http_code}' \
+              -p /tmp/upload_result \
               --data-binary "@/tmp/workspace/site.tar.gz" -u ${FS_USER}:${FS_PASSWORD})
 
             if [ "${status}" != "200" ]; then
               echo "Failed to upload file" >/dev/stderr
-              exit
+              cat /tmp/upload_result > /dev/stderr
+              exit 1
             fi
             # TODO: check return code
        - run:
