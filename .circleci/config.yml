@@ -61,8 +61,16 @@ jobs:
             test "${FS_ENDPOINT}"
             test "${FS_USER}"
             test "${FS_PASSWORD}"
-            curl -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
-              -d @/tmp/workspace/site.tar.gz -u ${FS_USER}:${FS_PASSWORD}
+            status=$(curl -sS -XPUT ${FS_ENDPOINT}/artifacts/${PROJECT}/${CIRCLE_BRANCH}-${CIRCLE_SHA1}/${PROJECT}.tar.gz \
+              -H'Content-Type: application/octet-stream' \
+              -w '%{http_code}'
+              --data-binary "@/tmp/workspace/site.tar.gz" -u ${FS_USER}:${FS_PASSWORD})
+
+            if [ "${status}" != "200" ]; then
+              echo "Failed to upload file" >/dev/stderr
+              exit
+            fi
+            # TODO: check return code
        - run:
           name: Deploy web site
           command: |
@@ -73,7 +81,8 @@ jobs:
             curl -XPOST "${DEPLOY_ENDPOINT}" \
               -H "Authorization: bearer ${DEPLOYER_TOKEN}" \
               -d site=${SITE_ID} \
-              -d desired_version="${CIRCLE_SHA1}"
+              -d desired_version="${CIRCLE_BRANCH}-${CIRCLE_SHA1}"
+            # TODO: check return code
 
 
 workflows:
