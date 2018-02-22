@@ -15,10 +15,8 @@ User registration is open at [wobble.moinz.de](https://wobble.moinz.de).
 The JSON-RPC endpoint is reachable at `https://wobble.moinz.de/api/endpoint.php`:
 
 ```
-$ curl https://wobble.moinz.de/api/endpoint.php -d '{"jsonrpc":"2.0", "id": 1, "method": "system.listMethods", "params":["foo"]}' | jq .
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100   658    0   582  100    76   3967    518 --:--:-- --:--:-- --:--:--  3986
+$ curl -sS https://wobble.moinz.de/api/endpoint.php \
+  -d '{"jsonrpc":"2.0", "id": 1, "method": "system.listMethods", "params":[]}' | jq .
 {
   "jsonrpc": "2.0",
   "result": [
