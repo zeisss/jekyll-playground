@@ -1,9 +1,9 @@
 ---
-title: "Welcome"
-layout: "page"
+title: "Moinz.de Webservices"
+layout: page
 ---
 
-## Services
+## Webservices
 
 * [fs](fs.html) - Storing files over HTTP
 * [msg](msg.html) - Message queueing for the lazy me

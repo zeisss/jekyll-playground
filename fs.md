@@ -1,6 +1,7 @@
 ---
-title: "fs"
 layout: page
+title: "fs"
+tagline: "Simple file storage"
 ---
 
 FS is a simple file storage with simpel rest api.
