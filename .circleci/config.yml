@@ -71,7 +71,7 @@ jobs:
             test "${DEPLOY_ENDPOINT}"
             test "${DEPLOYER_TOKEN}"
             curl -XPOST "${DEPLOY_ENDPOINT}" \
-              -H "Authorization: bearer ${DEPLOYER_TOKEN}"
+              -H "Authorization: bearer ${DEPLOYER_TOKEN}" \
               -d site=${SITE_ID} \
               -d desired_version="${CIRCLE_SHA1}"
 
