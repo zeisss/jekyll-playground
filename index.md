@@ -1,5 +1,4 @@
 ---
-title: "Moinz.de Webservices"
 layout: page
 ---
 
