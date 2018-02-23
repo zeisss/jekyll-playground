@@ -16,8 +16,8 @@ collections:
       - path: /fs/index.html
         text: fs
 
-      - path: /fs/user_guide.html
-        text: User Guide
+#      - path: /fs/user_guide.html
+#        text: User Guide
 
       - path: /fs/api.html
         text: API
