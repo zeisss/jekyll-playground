@@ -4,9 +4,12 @@ theme: "jekyll-theme-cayman-blog"
 
 header_pages:
  - "deploy.md"
- - "fs.md"
+ - "_fs/fs.md"
  - "msg.md"
  - "wobble.md"
+
+collections:
+ - fs
 
 
 # social
