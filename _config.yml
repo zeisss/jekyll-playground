@@ -9,7 +9,7 @@ header_pages:
  - "wobble.md"
 
 collections:
- - fs:
+  fs:
     output: true
 
 
