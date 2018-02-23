@@ -77,6 +77,16 @@
         </h2>
       {% endif %}
       <!-- End: Post tagline -->
+
+
+      {% for col in site.collections %}
+      {% if col.label == page.collection %}
+      {% for sibling in col.navigation %}
+      <a href="{{ sibling.path }}" class="btn active">{{ sibling.text }}</a>
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
+
     </section>
 
     <section class="main-content">

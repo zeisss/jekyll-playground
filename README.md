@@ -2,7 +2,11 @@
 
 Simple playground field to generate a help / documentation page.
 
-TODOs
+```
+jekyll serve
+```
+
+## TODOs
 
 * Try jekylls collection support to generate proper subpages for each "service". 
   * https://jekyllrb.com/docs/collections/

@@ -2,16 +2,25 @@ title: "Moinz.de Webservices"
 
 theme: "jekyll-theme-cayman-blog"
 
-header_pages:
- - "deploy.md"
- - "_fs/fs.md"
- - "msg.md"
- - "wobble.md"
+header_paths:
+ - {url: "deploy.html", title: "deploy"}
+ - {url: "fs/", title: "fs"}
+ - {url: "msg.html", title: "msg"}
+ - {url: "wobble.html", title: "Wobble"}
 
 collections:
   fs:
     output: true
 
+    navigation:
+      - path: /fs/index.html
+        text: fs
+
+      - path: /fs/user_guide.html
+        text: User Guide
+
+      - path: /fs/api.html
+        text: API
 
 
 # social

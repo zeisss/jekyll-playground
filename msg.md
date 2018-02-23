@@ -12,4 +12,4 @@ Endpoint: `https://apps.moinz.de/msg/msg.php`
 
 ## Documentation
 
-* [Object API](https://github.com/zeisss/msg-php/blob/master/Documentation.md)
+* [Messaging API](https://github.com/zeisss/msg-php/blob/master/Documentation.md)

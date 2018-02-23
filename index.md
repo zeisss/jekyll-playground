@@ -4,7 +4,7 @@ layout: page
 
 ## Webservices
 
-* [fs](fs.html) - Storing files over HTTP
+* [fs](fs/) - Storing files over HTTP
 * [msg](msg.html) - Message queueing for the lazy me
 * [deploy](deploy.html) - Deployments made simple
 * [wobble](wobble.html) - Google Wave clone with JSON-RPC

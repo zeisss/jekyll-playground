@@ -1,5 +1,5 @@
 ---
-title: "fs - Objects API"
+title: "Objects API"
 layout: page
 ---
 
