@@ -19,4 +19,4 @@ If you want access to them or use them for anything else, get in touch with me.
 
 ## Support
 
-* [Statuspage](uptime.statuscake.com/?TestID=JcRKxiJqvh)
+* [Statuspage](https://uptime.statuscake.com/?TestID=JcRKxiJqvh)
