@@ -16,8 +16,8 @@ layout: "page"
 
 ## Limitations
 
-* Currently only supports deployments from [fs](/fs/)
-* Currently only supports tar.gz artifacts
+* Currently only supports deployments of artifacts from [fs](/fs/)
+* Currently only supports `.tar.gz` artifacts
 * Sites for deployment must be predefined by an admin
 
 ## Endpoint
